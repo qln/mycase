@@ -38,10 +38,10 @@ public class ClientAnonFilter extends AuthenticationFilter {
         javax.servlet.http.Cookie[] cookiess = httpRequest.getCookies();
         if (null != cookiess && cookiess.length > 0) {
             for (javax.servlet.http.Cookie c : cookiess) {
-                if (c.getName().equals("wtoipSessionId")) {
+                if (c.getName().equals("wid")) {
                     String csid = c.getValue();
                     if (null != csid) {
-
+                        redisSessionDAO = SpringContextUtil.getBean("redisSessionDAO");
                         Session ses = redisSessionDAO.readSession(c.getValue());
                         if (null != ses && null != ses.getId()) {
                             logger.error("ClientAnonFilter sid:{}", ses.getId());
@@ -54,14 +54,12 @@ public class ClientAnonFilter extends AuthenticationFilter {
         }
 
         if (null != loginSessionId) {
-
             if (null != cookiess && cookiess.length > 0) {
-
                 for (javax.servlet.http.Cookie c : cookiess) {
-                    if (c.getName().equals("wtoipSessionId")) {
-                        SimpleCookie simpleCookie = new SimpleCookie("wtoipSessionId");
+                    if (c.getName().equals("wid")) {
+                        SimpleCookie simpleCookie = new SimpleCookie("wid");
                         // <!-- 记住我cookie生效时间30天 ,单位秒;-->
-                        simpleCookie.setDomain("wtoip.com");
+                        simpleCookie.setDomain("case.com");
                         simpleCookie.setValue(c.getValue());
                         simpleCookie.setMaxAge(30 * 60);
                         simpleCookie.setHttpOnly(true);
@@ -71,14 +69,13 @@ public class ClientAnonFilter extends AuthenticationFilter {
                             simpleCookie.setMaxAge(0);
                             simpleCookie.removeFrom(httpRequest, httpResponse);
                         }
-
                     }
                 }
             }
 
-            SimpleCookie simpleCookie = new SimpleCookie("wtoipSessionId");
+            SimpleCookie simpleCookie = new SimpleCookie("wid");
             // <!-- 记住我cookie生效时间30天 ,单位秒;-->
-            simpleCookie.setDomain("wtoip.com");
+            simpleCookie.setDomain("case.com");
             simpleCookie.setValue(loginSessionId);
             simpleCookie.setMaxAge(30 * 60);
             simpleCookie.setHttpOnly(true);

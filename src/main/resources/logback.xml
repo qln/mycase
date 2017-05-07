@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
 <!--     <property resource="app.properties"/> -->
-    <property name="logRoot" value="D:/logs"/>
+    <property name="logRoot" value="logs"/>
 	<include resource="org/springframework/boot/logging/logback/base.xml"/>
     <appender name="INFO-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
