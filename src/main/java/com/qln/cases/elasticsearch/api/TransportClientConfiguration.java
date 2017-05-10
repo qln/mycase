@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * @author zxn
  */
 @Configuration
-public class ClientConfiguration {
+public class TransportClientConfiguration {
 
     @Bean(name = "transportClient")
     public TransportClient getTransportClient() {

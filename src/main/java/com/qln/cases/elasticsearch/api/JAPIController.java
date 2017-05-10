@@ -21,7 +21,7 @@ import com.qln.cases.elasticsearch.api.util.ESUtil;
 
 @Controller
 @RequestMapping("client")
-public class ClientController {
+public class JAPIController {
 
     @Autowired
     TransportClient transportClient;
