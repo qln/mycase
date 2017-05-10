@@ -14,9 +14,10 @@ public class TestEsClient {
             // 设置集群名称
             Settings settings = Settings.builder().put("cluster.name", "qln-es").build();
             // 创建client
-            TransportClient client = new PreBuiltTransportClient(settings).addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.220.130"), 9300));
+            TransportClient client = new PreBuiltTransportClient(settings);
+            client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.220.130"), 9300));
             // 搜索数据
-            GetResponse response = client.prepareGet("blog", "article", "1").execute().actionGet();
+            GetResponse response = client.prepareGet("megacorp", "employee", "1").execute().actionGet();
             // 输出结果
             System.out.println(response.getSourceAsString());
             // 关闭client

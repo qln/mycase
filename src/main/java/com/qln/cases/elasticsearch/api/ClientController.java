@@ -37,6 +37,7 @@ public class ClientController {
             Settings settings = Settings.builder().put("cluster.name", "qln-es").put("client.transport.sniff", true).build();
             client = new PreBuiltTransportClient(settings);
             client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.220.130"), 9300));
+//            GetResponse resp = client.prepareGet("megacorp", "employee", "1").execute().actionGet();
             IndexResponse resp = client.prepareIndex("twitter", "tweet", "1").setSource(json).get();
             System.out.println(resp.getIndex());
         } catch (Exception e) {
