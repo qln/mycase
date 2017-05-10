@@ -28,6 +28,8 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
 import com.qln.cases.shiro.credentials.CustomCredentialsMatcher;
+import com.qln.cases.shiro.filter.ClientAnonFilter;
+import com.qln.cases.shiro.realm.MyRealm;
 
 @Configuration
 public class ShiroConfiguration {
@@ -86,7 +88,7 @@ public class ShiroConfiguration {
         return dwsm;
     }
 
-    @Bean(name="shiroRealm")
+    @Bean(name = "shiroRealm")
     @DependsOn("lifecycleBeanPostProcessor")
     public MyRealm getShiroRealm() {
         MyRealm shiroRealm = new MyRealm();
@@ -114,7 +116,7 @@ public class ShiroConfiguration {
     @Bean
     public RedisManager getRedisManager() {
         RedisManager redisManager = new RedisManager();
-        redisManager.setExpire(30*60);
+        redisManager.setExpire(30 * 60);
         redisManager.setTimeout(0);
         return redisManager;
     }

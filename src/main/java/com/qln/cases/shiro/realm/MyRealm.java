@@ -1,4 +1,4 @@
-package com.qln.cases.shiro;
+package com.qln.cases.shiro.realm;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

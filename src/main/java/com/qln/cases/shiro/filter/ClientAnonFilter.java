@@ -1,4 +1,4 @@
-package com.qln.cases.shiro;
+package com.qln.cases.shiro.filter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
