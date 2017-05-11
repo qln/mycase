@@ -25,7 +25,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 @Controller
-@RequestMapping(value = "client", produces = "text/json;charset=UTF-8")
+@RequestMapping(value = "japi", produces = "text/json;charset=UTF-8")
 public class JAPIController {
 
     @Autowired
