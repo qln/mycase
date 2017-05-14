@@ -98,7 +98,10 @@ public class ShiroConfiguration {
 
     @Bean
     public CustomCredentialsMatcher getCustomCredentialsMatcher() {
-        return new CustomCredentialsMatcher();
+        CustomCredentialsMatcher customCredentialsMatcher = new CustomCredentialsMatcher();
+        customCredentialsMatcher.setHashAlgorithmName("md5");
+        customCredentialsMatcher.setHashIterations(2);
+        return customCredentialsMatcher;
     }
 
     @Bean(name = "clientAnonFilter")
@@ -116,6 +119,9 @@ public class ShiroConfiguration {
     @Bean
     public RedisManager getRedisManager() {
         RedisManager redisManager = new RedisManager();
+        redisManager.setHost("192.168.220.130");
+        redisManager.setPort(6379);
+        redisManager.setPassword("zxn@0302");
         redisManager.setExpire(30 * 60);
         redisManager.setTimeout(0);
         return redisManager;
