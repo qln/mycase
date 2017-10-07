@@ -19,7 +19,7 @@ public class JestConfiguration {
 
     @Bean
     public HttpClientConfig getHttpClientConfig() {
-        HttpClientConfig config = new HttpClientConfig.Builder("http://192.168.220.130:9200").multiThreaded(true).defaultMaxTotalConnectionPerRoute(2).maxTotalConnection(10).build();
+        HttpClientConfig config = new HttpClientConfig.Builder("http://192.168.11.219:9200").multiThreaded(true).defaultMaxTotalConnectionPerRoute(2).maxTotalConnection(10).build();
         return config;
     }
 

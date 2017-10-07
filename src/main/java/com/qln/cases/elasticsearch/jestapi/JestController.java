@@ -6,6 +6,7 @@ import io.searchbox.core.Index;
 import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 import io.searchbox.indices.mapping.PutMapping;
+import io.swagger.annotations.ApiOperation;
 
 import java.io.IOException;
 
@@ -29,6 +30,7 @@ public class JestController {
 
     @ResponseBody
     @RequestMapping(value = "get", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
+    @ApiOperation(notes = "查询", value = "查询")
     public String get(HttpServletRequest request, HttpServletResponse response) {
         JSONObject query = new JSONObject();
         JSONObject data = new JSONObject();

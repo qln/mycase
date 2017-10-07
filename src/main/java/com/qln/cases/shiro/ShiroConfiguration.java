@@ -119,7 +119,7 @@ public class ShiroConfiguration {
     @Bean
     public RedisManager getRedisManager() {
         RedisManager redisManager = new RedisManager();
-        redisManager.setHost("192.168.220.130");
+        redisManager.setHost("192.168.11.219");
         redisManager.setPort(6379);
         redisManager.setPassword("zxn@0302");
         redisManager.setExpire(30 * 60);

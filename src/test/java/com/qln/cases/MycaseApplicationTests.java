@@ -11,6 +11,12 @@ public class MycaseApplicationTests {
 
 	@Test
 	public void contextLoads() {
+	    System.out.println("load finished...");
+	}
+	
+	@Test
+	public void get(){
+	    
 	}
 
 }

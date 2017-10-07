@@ -30,7 +30,7 @@ public class RestController {
     @ResponseBody
     @RequestMapping(value = "get", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
     public String search(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        RestClient restClient = RestClient.builder(new HttpHost("192.168.220.130", 9200, "http")).build();
+        RestClient restClient = RestClient.builder(new HttpHost("192.168.11.219", 9200, "http")).build();
         Response res = restClient.performRequest("GET", "/", Collections.singletonMap("pretty", "true"));
         logger.info(EntityUtils.toString(res.getEntity()));
 
@@ -42,7 +42,7 @@ public class RestController {
     @ResponseBody
     @RequestMapping(value = "create", method = RequestMethod.POST, produces = "text/json;charset=UTF-8")
     public String create(HttpServletRequest request, HttpServletResponse response) {
-        RestClient restClient = RestClient.builder(new HttpHost("192.168.220.130", 9200, "http")).build();
+        RestClient restClient = RestClient.builder(new HttpHost("192.168.11.219", 9200, "http")).build();
         JSONObject data = new JSONObject();
         data.put("user", "kimchy");
         data.put("post_date", "2009-11-15T14:12:12");

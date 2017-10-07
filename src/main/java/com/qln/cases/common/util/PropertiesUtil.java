@@ -11,17 +11,10 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
-/**
- * @author Easin
- * @date 2016年5月17日
- */
 public class PropertiesUtil extends Properties {
     private static final Logger logger = Logger.getLogger(PropertiesUtil.class);
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 
-     */
     public PropertiesUtil() {
         super();
     }
