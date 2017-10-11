@@ -6,22 +6,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
-/**
- * @author Easin
- * @date 2016年5月17日
- */
 public class PropertiesUtil extends Properties {
     private static final Logger logger = Logger.getLogger(PropertiesUtil.class);
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 
-     */
     public PropertiesUtil() {
         super();
     }
@@ -42,7 +36,7 @@ public class PropertiesUtil extends Properties {
             // }
             logger.info("============config file folder:【" + path + "】");
             Resource resource = null;
-            if (ObjectUtils.isNotBlank(active)) {
+            if (StringUtils.isNotBlank(active)) {
                 logger.info("============config profile:【" + active + "】");
                 resource = new FileSystemResource(path + confType + "-" + active + ".properties");
                 logger.info("============ load config file:【" + path + confType + "-" + active + ".properties" + "】");
@@ -70,7 +64,6 @@ public class PropertiesUtil extends Properties {
                     resource = new ClassPathResource(confType + ".properties");
                     appProperties = new PropertiesUtil(resource.getInputStream());
                 }
-
             }
         } catch (Exception e) {
             logger.error("============config error:【" + confType + "】", e);
@@ -148,7 +141,6 @@ public class PropertiesUtil extends Properties {
         String oval = getProperty(key);
         try {
             if (oval != null) {
-
                 return Boolean.parseBoolean(oval);
             } else {
                 return defaultVal;

@@ -1,7 +1,6 @@
-name: Phil
-
----
-
 spring:
-  profiles: goodbye,dev
-name: Everyone
+  activemq:
+    in-memory: false
+    broker-url: tcp://10.13.5.219:61616
+    pool:
+      enabled: false

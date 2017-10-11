@@ -24,7 +24,7 @@ public class TransportClientConfiguration {
         Settings settings = null;
         try {
             settings = Settings.builder().put("cluster.name", "qln-es").put("client.transport.sniff", true).build();
-            client = new PreBuiltTransportClient(settings).addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.220.130"), 9300));
+            client = new PreBuiltTransportClient(settings).addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.11.219"), 9300));
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
