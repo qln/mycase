@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = { "com.qln.cases" })
+@SpringBootApplication(scanBasePackages = { "com.qln.cases.mq" })
 @MapperScan("com.qln.cases.shiro.dao")
 public class MycaseApplication {
 
